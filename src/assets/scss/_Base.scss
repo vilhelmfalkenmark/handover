@@ -1,0 +1,179 @@
+@font-face {
+    font-family: sofia;
+    src: url("../font/sofia-regular.ttf");
+}
+
+$flex-left: 30%;
+
+html {
+  line-height: 1.5;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+body {
+  font-family: sofia, "sans-serif";
+  overflow-x: hidden;
+  color: $text;
+}
+ul {
+  padding-left: 0;
+}
+/////////////////////////////////////////////
+// Forms and button
+/////////////////////////////////////////////
+.Form-container {
+  margin: 0 auto;
+  input {
+    outline: 0;
+    width: 100%;
+    height: 50px;
+    border: 1px solid $light-grey;
+    padding: $base;
+    &:focus {
+      border: 1px solid $text;
+    }
+  }
+  button {
+    width: 100%;
+    height: 50px;
+    margin: 30px auto 0 auto;
+    background-color: $green;
+    color: white;
+    border: 1px solid $green;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+      background-color: darken($green,5%);
+    }
+    &:active {
+      background-color: darken($green,8%);
+    }
+  }
+}
+@mixin btn($color) {
+  background-color: $color;
+  color: white;
+  border-radius: 2px;
+  border: 1px solid $color;
+  cursor: pointer;
+  padding: $base/2;
+  outline: 0;
+  &:hover {
+    background-color: darken($color,4%);
+  }
+  &:active {
+    background-color: darken($color,8%);
+  }
+}
+.Btn--turq {
+  @include btn($turq);
+}
+.Btn--danger {
+  @include btn($red);
+}
+.Btn--success {
+  @include btn($green);
+}
+
+
+
+/////////////////////////////////////////////
+// HEADER
+/////////////////////////////////////////////
+.Header-container {
+  @include flex-row();
+}
+.Header-container-user {
+  flex-basis: $flex-left;
+  @include flex-position(center);
+  background-color: $turq;
+  color: white;
+}
+.Header-container-adduser {
+  flex-basis: calc(100% - #{$flex-left});
+  @include flex-position(center);
+}
+/////////////////////////////////////////////
+// Main app
+/////////////////////////////////////////////
+.MainApp-Container {
+  @include flex-row();
+  min-height: 80vh;
+}
+.MainApp-block {
+  padding: $base;
+}
+.MainApp-block--users {
+  flex-basis: $flex-left;
+  background-color: $text;
+  color: white;
+}
+
+.MainApp-block--users {
+  li {
+    list-style-type: none;
+    position: relative;
+    margin-bottom: 4*$base;
+    > span {
+      background-color: white;
+      position: absolute;
+      right: 0;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      background-color: $green;
+      @include flex-position(center);
+      top: 0;
+    }
+    div {
+      margin-top: 2*$base;
+      @include flex-row();
+      button {
+        @include flex-gtr-col(3,5px);
+      }
+    }
+  }
+}
+/////////////////////////////////////////////
+// Center
+/////////////////////////////////////////////
+.MainApp-block--todolist {
+  flex-basis: 55%;
+  background-color: $light-grey;
+}
+.MainApp-block--todolist-well {
+  background-color: white;
+  padding: 2*$base;
+  margin: 2*$base;
+}
+.MainApp-block--all {
+  background-color: $turq;
+  flex-basis: 15%;
+  color: white;
+  ul {
+    padding-left: 20px;
+  }
+}
+/////////////////////////////////////////////
+// Todolist
+/////////////////////////////////////////////
+.Todolist {
+  list-style-type: none;
+
+}
+.Todolist-item {
+  position: relative;
+  padding: $base*2 0;
+  border-bottom: 1px solid $light-grey;
+  &.is-done {
+    text-decoration: line-through;
+  }
+}
+.Todolist-item-btns {
+    position: absolute;
+    right: 0;
+    top: $base*2;
+}
