@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './assets/css/stylesheet.css';
 
 class StyleGuide extends Component {
   render() {
     return (
       <div className="Dashboard">
        <header className="Header-container">
+
          <section className="Header-container-user">
            <div>
              <h2>Inloggad som Vilhelm</h2>
@@ -13,13 +13,16 @@ class StyleGuide extends Component {
              <p>Att göra: 2</p>
            </div>
          </section>
+
          <section className="Header-container-adduser">
            <div className="Form-container">
              <input className="Form-input" type="text" placeholder="Ny användare" />
              <button className="Form-btn">Lägg till användare</button>
            </div>
          </section>
+
        </header>
+
        <main className="MainApp-Container">
          {/* VÄNSTERKOLUMN */}
          <section className="MainApp-block MainApp-block--users">

@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import StyleGuide from './StyleGuide';
+import { Provider } from "react-redux";
+import App from './App';
+// import StyleGuide from './StyleGuide';
+import store from "./Store";
+import '../assets/css/stylesheet.css';
 
 ReactDOM.render(
-  <StyleGuide />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
